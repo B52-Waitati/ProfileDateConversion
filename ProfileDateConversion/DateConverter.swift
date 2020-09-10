@@ -17,9 +17,9 @@ class DateConverter {
     var dateFormatter = DateFormatter()
     var calendar = Calendar.current
     init() {
-        self.calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        //self.calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        self.dateFormatter.timeZone = TimeZone.current  // TODO Time zones out of wack
+        self.dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)!   // TODO Time zones out of wack
     }
     func convert_yyyy_MM_dd_HH_mm_ss(input: String, cache:Bool = true) -> Date {
         // Input string is of format: YYYY-MM-dd HH:mm:ss
@@ -29,10 +29,10 @@ class DateConverter {
             }
         }
         let date = dateFormatter.date(from:input)!
-        self.calendar.timeZone = TimeZone(secondsFromGMT: 0)! // TODO Time zones out of wack
+        //self.calendar.timeZone = TimeZone(secondsFromGMT: 0)! // TODO Time zones out of wack
         var components = calendar.dateComponents([.year, .month, .day, .hour],
                                                  from: date)
-        components.timeZone = TimeZone(secondsFromGMT: 0)// TODO Time zones out of wack
+        //components.timeZone = TimeZone(secondsFromGMT: 0)// TODO Time zones out of wack
         
         // TODO  Why is this time out by a constant amount
         // TODO Time zones out of wack
