@@ -7,7 +7,13 @@
 //
 
 import Foundation
+var date = Date();
+for _ in 1...31 {
 
+    print("\(DateConverter.datePrettyString(date))")
+    date += 24*60*60
+}
+exit(0)
 let count = 200000 // Number of dates to trial
 var datesStringString = [(String, String)]() // ("YYYY-MM-DD", "HH")
 var datesDate = [Date]() // Store original dates to check conversion
@@ -34,8 +40,8 @@ for _ in 0..<10 {
     }
     elapsed = Date().timeIntervalSince(startDate)
     print("Elapsed time to convert:\n\(ssDate.0) to \n\(ssDate.1.description) " +
-        "\n\(count) times is \(elapsed) seconds")
-    print(String(format: "%0.3f", Double(count)/elapsed) + " records a second")
+        "\n\(count) times is \(String(format: "%0.3f", elapsed)) seconds")
+    print(String(format: "%0.3f", Double(count)/elapsed) + " records a second\n")
 }
 print("Done")
 exit(0)
