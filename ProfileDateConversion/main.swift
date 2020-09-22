@@ -10,7 +10,7 @@ import Foundation
 var date = Date();
 for _ in 1...31 {
 
-    print("\(DateConverter.datePrettyString(date))")
+    print("\(DateConverter.prettyDateString(date))")
     date += 24*60*60
 }
 exit(0)
