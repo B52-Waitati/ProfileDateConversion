@@ -42,7 +42,7 @@ class DateConverter {
         return ret
     }
     /*
-     can you write a function that takes a Date and returns dd MMM yyyy. where the day has the "st" and 'nd' and 'rd' postpended to the dd. I have the function for that in DateTimeFunctions in B52 code.0
+     can you write a function that takes a Date and returns dd MMM yyyy. where the day has the "st" and 'nd' and 'rd' postpended to the dd. 
      */
     static func prettyDateString(_ date:Date) -> String{
         var calendar = Calendar.current

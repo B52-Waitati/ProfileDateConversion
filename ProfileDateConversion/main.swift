@@ -13,6 +13,23 @@ for _ in 1...31 {
     print("\(DateConverter.prettyDateString(date))")
     date += 24*60*60
 }
+let lim = 100000
+print("Profile:  Convert \(lim) dates....")
+date = Date()
+var elapsed:Double
+var startDate = Date()
+for _ in 1...lim{
+    date += 24*60*60
+}
+let overHead = Date().timeIntervalSince(startDate)
+startDate = Date()
+for _ in 1...lim{
+    date += 24*60*60
+    _ = DateConverter.prettyDateString(date)
+}
+elapsed = Date().timeIntervalSince(startDate) - overHead
+let datesPerSecond = Double(lim)/elapsed
+print("\(elapsed) seconds. \(String(format:"%0.3f", datesPerSecond)) dates per second")
 exit(0)
 let count = 200000 // Number of dates to trial
 var datesStringString = [(String, String)]() // ("YYYY-MM-DD", "HH")
@@ -104,8 +121,7 @@ func stringToDateLessNaive(input:(String,String)) -> Date {
 datesStringString = makeDatesStringStringNaive(count: UInt(count))
 var nRecords = datesStringString.count
 
-var elapsed: Double
-var startDate = Date()
+startDate = Date()
 for ss in datesStringString {
     _ = stringToDateNaive(input: ss)
 }
