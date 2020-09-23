@@ -44,6 +44,19 @@ class DateConverter {
     /*
      can you write a function that takes a Date and returns dd MMM yyyy. where the day has the "st" and 'nd' and 'rd' postpended to the dd. 
      */
+    static let shortMonthSymbols = [
+        0:"Jan",
+        1:"Feb",
+        2:"Mar",
+        3:"Apr",
+        4:"May",
+        5:"Jun",
+        6:"Jul",
+        7:"Aug",
+        8:"Sep",
+        9:"Oct",
+        10:"Nov",
+        11:"Dec"]
     static func prettyDateString(_ date:Date) -> String{
         var calendar = Calendar.current
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
@@ -63,6 +76,6 @@ class DateConverter {
             dayString += "th"
         }
         
-        return "\(dayString) \(calendar.shortMonthSymbols[month-1]) \(year)"
+        return "\(dayString) \(shortMonthSymbols[month]) \(year)"
     }
 }
